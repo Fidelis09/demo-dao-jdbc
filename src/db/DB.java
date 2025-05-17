@@ -16,9 +16,9 @@ public class DB {
                 Class.forName("com.mysql.cj.jdbc.Driver"); // <- essa linha é ESSENCIAL
                 conn = DriverManager.getConnection(URL, USUARIO, SENHA);
             } catch (ClassNotFoundException e) {
-                throw new DbExeption("Driver JDBC não encontrado: " + e.getMessage());
+                throw new DbException("Driver JDBC não encontrado: " + e.getMessage());
             } catch (SQLException e) {
-                throw new DbExeption("Erro de conexão: " + e.getMessage());
+                throw new DbException("Erro de conexão: " + e.getMessage());
             }
         }
         return conn;
@@ -30,7 +30,7 @@ public class DB {
             try {
                 conn.close();
             } catch (SQLException e) {
-                throw new DbExeption(e.getMessage());
+                throw new DbException(e.getMessage());
             }
         }
     }
@@ -40,7 +40,7 @@ public class DB {
             try {
                 st.close();
             }catch (SQLException e){
-                throw  new DbExeption(e.getMessage());
+                throw  new DbException(e.getMessage());
             }
         }
     }
@@ -50,7 +50,7 @@ public class DB {
             try {
                 rs.close();
             }catch (SQLException e){
-                throw  new DbExeption(e.getMessage());
+                throw  new DbException(e.getMessage());
             }
         }
     }
