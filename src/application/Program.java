@@ -8,10 +8,13 @@ import model.entities.Seller;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Scanner;
 
 public class Program {
 
     public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
 
         //Department obj = new Department(1, "Books");
 
@@ -48,5 +51,12 @@ public class Program {
         sellerDao.update(seller);
         System.out.println("update Completed!");
 
+        System.out.println("\n==== TESTE 5: seller delete ====");
+        System.out.println("\nDigite o id de exlusão: ");
+        int id = sc.nextInt();
+        sellerDao.deleteById(id);
+        System.out.println("Delete completed");
+
+        sc.close();
     }
 }
